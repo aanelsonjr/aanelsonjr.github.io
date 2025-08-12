@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GEN X WIRE — News for Gen X</title>
+  <meta name="description" content="A Drudge-style, Gen X–focused homepage for quick-linking to news across the web." />
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    :root { --bg:#fcfcfa; --fg:#101418; --muted:#667085; --accent:#0f766e; --link:#0a58ca; --link-visited:#6f42c1; --border:#e6e6e6; --card:#ffffff; }
+    :root.dark { --bg:#0c1116; --fg:#e8ecef; --muted:#9aa4b2; --accent:#14b8a6; --link:#93c5fd; --link-visited:#c4b5fd; --border:#1b2836; --card:#0f1621; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: ui-serif, Georgia, "Times New Roman", Times, serif; background: var(--bg); color: var(--fg); line-height: 1.35; }
+    a { color: var(--link); text-decoration-thickness: .08em; text-underline-offset: 2px; }
+    a:visited { color: var(--link-visited); }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 16px; }
+
+    .masthead { text-align: center; margin: 16px 0 8px; }
+    .site-title { font-family: "Courier New", Courier, monospace; font-weight: 800; letter-spacing: 2px; font-size: clamp(32px, 7vw, 72px); text-transform: uppercase; color: var(--fg); }
+    .sublabel { color: var(--muted); font-size: 14px; margin-top: 6px; }
+
+    .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; justify-content: center; margin: 8px 0 16px; }
+    .btn { cursor: pointer; border: 1px solid var(--border); background: var(--card); color: var(--fg); padding: 8px 10px; border-radius: 8px; font-size: 14px; }
+    .btn:hover { filter: brightness(0.97); }
+    .input { border: 1px solid var(--border); background: var(--bg); color: var(--fg); padding: 8px 10px; border-radius: 8px; font-size: 14px; min-width: 240px; }
+
+    .feature { margin: 8px auto 16px; text-align: center; border-top: 2px solid var(--border); border-bottom: 2px solid var(--border); padding: 14px 8px; max-width: 980px; }
+    .feature a { color: var(--accent); text-decoration: none; }
+    .feature a:hover { text-decoration: underline; }
+    .feature h1 { margin: 0; font-size: clamp(20px, 4.8vw, 42px); font-weight: 900; text-transform: uppercase; }
+    .feature .kicker { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+    .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; align-items: start; }
+    @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .col-title { font-family: "Courier New", Courier, monospace; font-size: 14px; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; margin: 4px 0 10px; }
+
+    ul.links { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .links li a { font-size: clamp(15px, 1.6vw, 18px); font-weight: 800; text-decoration: none; }
+    .links li small { display: inline-block; margin-left: 6px; color: var(--muted); font-weight: 400; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    footer { text-align: center; color: var(--muted); font-size: 13px; padding: 24px 0 40px; }
+
+    dialog { border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: var(--bg); color: var(--fg); max-width: 520px; }
+    dialog form { display: grid; gap: 10px; }
+    dialog label { font-size: 13px; color: var(--muted); }
+    dialog input, dialog select { background: var(--card); color: var(--fg); border: 1px solid var(--border); padding: 8px 10px; border-radius: 8px; }
+
+    .help { text-align: center; font-size: 13px; color: var(--muted); margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead" role="banner">
+      <div class="site-title" id="siteTitle">GEN X WIRE</div>
+      <div class="sublabel"><span id="today"></span> · <span id="tagline">News & links for U.S. Gen X</span></div>
+    </header>
+
+    <div class="toolbar" role="toolbar" aria-label="Page tools">
+      <button class="btn" id="toggleTheme" title="Toggle dark mode">Toggle Theme</button>
+      <button class="btn" id="openEditor" title="Add a link">Add Link</button>
+      <input class="input" id="search" placeholder="Filter links… (⌘/Ctrl+K)" aria-label="Filter links" />
+      <button class="btn" id="reloadRemote" title="Reload from remote JSON">Reload</button>
+      <button class="btn" id="setRemote" title="Set remote JSON URL">Set Remote</button>
+      <button class="btn" id="clearStorage" title="Reset to defaults">Reset</button>
+    </div>
+
+    <section class="feature" id="feature" aria-label="Main feature"></section>
+
+    <main class="grid" id="grid" aria-label="Categories"></main>
+
+    <footer>
+      <div class="help">Curated for Gen X: set a remote <code>config.json</code> (e.g., on Netlify or GitHub Pages). The page reads that on load. Local edits still save in your browser.</div>
+      <div>© <span id="year"></span> GEN X WIRE</div>
+    </footer>
+  </div>
+
+  <dialog id="editor">
+    <form method="dialog" id="editorForm">
+      <h3 style="margin:0 0 6px;">Add a Link</h3>
+      <label>Text <input required id="fText" placeholder="Headline text" /></label>
+      <label>URL <input required id="fUrl" placeholder="https://example.com/article" /></label>
+      <label>Category <select id="fCategory"></select></label>
+      <label>Badge (optional) <input id="fBadge" placeholder="NEW, EXCLUSIVE, ANALYSIS…" /></label>
+      <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:8px;">
+        <button class="btn" value="cancel">Cancel</button>
+        <button class="btn" value="default" id="saveLink">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script id="config" type="application/json">
+  { "siteTitle": "GEN X WIRE", "tagline": "News & links for U.S. Gen X",
+    "feature": { "text": "FEATURED: The stories Gen X is talking about", "url": "#", "kicker": "Curated daily" },
+    "categories": [
+      {"name": "Politics", "items": [{"text":"Election map shifts in the suburbs","url":"#"},{"text":"Policy watch: retirement & Social Security","url":"#","badge":"GUIDE"}]},
+      {"name": "Sports", "items": [{"text":"NFL preview: rivalry week","url":"#"},{"text":"College football realignment ripple effects","url":"#"}]},
+      {"name": "Tech", "items": [{"text":"AI at work: will it help your job?","url":"#"},{"text":"Privacy tips for families with teens","url":"#","badge":"HOW-TO"}]},
+      {"name": "Culture", "items": [{"text":"90s nostalgia: reboots worth watching","url":"#"},{"text":"Music: R&B tours hitting the road","url":"#"}]},
+      {"name": "Finance", "items": [{"text":"College bills & empty-nest budgets","url":"#"},{"text":"Market watch: index funds vs. stock picks","url":"#"}]},
+      {"name": "Health", "items": [{"text":"Midlife fitness: quick strength plan","url":"#"},{"text":"Sleep & stress in your 40s–50s","url":"#"}]}
+    ] }
+  </script>
+
+  <script>
+    const $ = (s, el=document) => el.querySelector(s);
+    const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+    const STORAGE_KEY = 'genx_wire_v1';
+    const THEME_KEY   = 'genx_wire_theme';
+    const REMOTE_KEY  = 'genx_wire_remote_url';
+
+    function formatToday() {
+      try { return new Intl.DateTimeFormat(undefined, { weekday:'long', month:'long', day:'numeric', year:'numeric' }).format(new Date()); }
+      catch { return new Date().toDateString(); }
+    }
+    async function fetchJSON(url){ const res = await fetch(url, { cache:'no-store' }); if(!res.ok) throw new Error('HTTP '+res.status); return await res.json(); }
+    async function loadConfig(){
+      const remote = localStorage.getItem(REMOTE_KEY) || 'config.json';
+      try { return await fetchJSON(remote); }
+      catch(e){
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) return JSON.parse(saved);
+        return JSON.parse(document.getElementById('config').textContent);
+      }
+    }
+    function saveConfig(cfg){ localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg)); }
+    function clearConfig(){ localStorage.removeItem(STORAGE_KEY); }
+
+    function renderFeature(feature){
+      const el = document.getElementById('feature');
+      if (!feature || !feature.text) { el.innerHTML = ''; return; }
+      el.innerHTML = `<h1><a href="${feature.url}" target="_blank" rel="noopener noreferrer">${feature.text}</a></h1>${feature.kicker ? `<div class="kicker">${feature.kicker}</div>` : ''}`;
+    }
+    function linkItemHTML(item){
+      const badge = item.badge ? ` <small>· ${item.badge}</small>` : '';
+      const note = item.note ? `<div class="note">${item.note}</div>` : '';
+      return `<li><a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.text}</a>${badge}${note}</li>`;
+    }
+    function renderCategories(categories){
+      const grid = document.getElementById('grid');
+      const colCount = 3;
+      const buckets = Array.from({length: colCount}, () => []);
+      categories.forEach((cat, i) => buckets[i % colCount].push(cat));
+      grid.innerHTML = buckets.map(bucket => `<section>${bucket.map(cat => `<div class="card"><div class="col-title">${cat.name}</div><ul class="links">${(cat.items||[]).map(linkItemHTML).join('')}</ul></div>`).join('')}</section>`).join('');
+    }
+    function openEditor(){ document.getElementById('editor').showModal(); }
+    function addLinkFromForm(cfg){
+      const text = document.getElementById('fText').value.trim();
+      const url = document.getElementById('fUrl').value.trim();
+      const catName = document.getElementById('fCategory').value;
+      const badge = document.getElementById('fBadge').value.trim();
+      if (!text || !url || !catName) return;
+      const item = { text, url }; if (badge) item.badge = badge;
+      if (Array.isArray(cfg.categories)){ const target = cfg.categories.find(c => c.name === catName); if (target){ target.items = target.items || []; target.items.unshift(item); } }
+      saveConfig(cfg); renderAll();
+    }
+    function populateCategorySelect(cfg){
+      const sel = document.getElementById('fCategory'); sel.innerHTML = '';
+      (cfg.categories||[]).map(c => c.name).forEach(n => { const opt = document.createElement('option'); opt.value = n; opt.textContent = n; sel.appendChild(opt); });
+    }
+    function toggleTheme(){ const root = document.documentElement; root.classList.toggle('dark'); localStorage.setItem(THEME_KEY, root.classList.contains('dark') ? 'dark' : 'light'); }
+    function initTheme(){ const pref = localStorage.getItem(THEME_KEY); if (pref === 'dark') document.documentElement.classList.add('dark'); }
+    function initFilter(){ const input = document.getElementById('search'); function run(){ const q = input.value.toLowerCase(); $$('.links li').forEach(li => { li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none'; }); } input.addEventListener('input', run); window.addEventListener('keydown', (e)=>{ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){ e.preventDefault(); input.focus(); } }); }
+    function setRemote(){ const current = localStorage.getItem(REMOTE_KEY)||'config.json'; const url = prompt('Remote JSON URL (e.g., https://<site>.netlify.app/config.json):', current); if(!url) return; localStorage.setItem(REMOTE_KEY, url.trim()); location.reload(); }
+    async function renderAll(){ window._cfg = await loadConfig(); const cfg = window._cfg; document.getElementById('siteTitle').textContent = cfg.siteTitle || 'GEN X WIRE'; document.getElementById('tagline').textContent = cfg.tagline || 'News & links for U.S. Gen X'; renderFeature(cfg.feature); if (cfg.categories) renderCategories(cfg.categories); saveConfig(cfg); populateCategorySelect(cfg); }
+    initTheme(); document.getElementById('today').textContent = formatToday(); document.getElementById('year').textContent = new Date().getFullYear(); renderAll(); initFilter();
+    document.getElementById('toggleTheme').addEventListener('click', toggleTheme);
+    document.getElementById('openEditor').addEventListener('click', openEditor);
+    document.getElementById('reloadRemote').addEventListener('click', renderAll);
+    document.getElementById('setRemote').addEventListener('click', setRemote);
+    document.getElementById('clearStorage').addEventListener('click', () => { if (confirm('Reset local cache?')) { clearConfig(); location.reload(); } });
+    const editor = document.getElementById('editor'); editor.addEventListener('close', () => document.getElementById('editorForm').reset()); document.getElementById('saveLink').addEventListener('click', async (e)=>{ e.preventDefault(); const current = window._cfg || JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'); addLinkFromForm(current); editor.close(); });
+  </script>
+</body>
+</html>
