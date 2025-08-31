@@ -6,125 +6,115 @@
     "url": "https://www.marketwatch.com/story/working-from-home-might-be-the-key-to-a-better-retirement",
     "kicker": "Retirement, identity, wealth"
   },
-  "categories": [
-    {
-      "name": "Politics",
-      "items": [
-        {
-          "text": "Gen X is trying to come to grips with getting 'old.' It's not going so well.",
-          "url": "https://www.marketwatch.com/story/gen-x-is-trying-to-come-to-grips-with-getting-old-its-not-going-so-well"
-        },
-        {
-          "text": "Gen X\u2019s Quiet Economic Power: Unlocking $15.2 Trillion in Markets",
-          "url": "https://www.businesswire.com/news/home/20250814005000/en/Gen-Xs-Quiet-Economic-Power"
-        },
-        {
-          "text": "Gen X is being skipped over for CEO roles",
-          "url": "https://www.wsj.com/articles/gen-x-being-skipped-over-for-ceo-roles"
-        }
-      ]
-    },
-    {
-      "name": "Finance",
-      "items": [
-        {
-          "text": "Gen X Drives $15.2 Trillion Global Market Spending",
-          "url": "https://www.businesswire.com/news/home/20250814005000/en/Gen-Xs-Quiet-Economic-Power"
-        },
-        {
-          "text": "Generation X Retirement Preparedness Crisis",
-          "url": "https://www.kiplinger.com/retirement/retirement-planning/generation-x-retirement-preparedness-crisis"
-        },
-        {
-          "text": "Gen X to Outspend Other Generations in 2025",
-          "url": "https://www.forbes.com/sites/forbesfinancecouncil/2025/08/10/gen-x-to-outspend-other-generations-in-2025"
-        }
-      ]
-    },
-    {
-      "name": "Tech",
-      "items": [
-        {
-          "text": "AI Stocks Face a 'Show Me' Moment",
-          "url": "https://www.cnbc.com/2025/08/12/these-ai-stocks-face-a-show-me-moment.html"
-        },
-        {
-          "text": "Gen X Leaders Driving AI Integration",
-          "url": "https://www.mckinsey.com/2025/07/29/gen-x-leaders-driving-ai-integration"
-        },
-        {
-          "text": "Gen Xers Manage Tech Across Generations",
-          "url": "https://hbr.org/2025/08/gen-xers-manage-tech-across-generations"
-        }
-      ]
-    },
-    {
-      "name": "Culture",
-      "items": [
-        {
-          "text": "Gen X is trying to come to grips with getting 'old.'",
-          "url": "https://www.marketwatch.com/story/gen-x-is-trying-to-come-to-grips-with-getting-old-its-not-going-so-well"
-        },
-        {
-          "text": "Boomers & Gen Xers Share 30 Things They Don\u2019t Miss from the 80s/90s",
-          "url": "https://www.buzzfeed.com/boomer-genx-80s-90s-things-they-dont-miss"
-        },
-        {
-          "text": "An Apology to Gen X",
-          "url": "https://www.theatlantic.com/culture/archive/2025/08/an-apology-to-gen-x/675000"
-        }
-      ]
-    },
-    {
-      "name": "Sports",
-      "items": [
-        {
-          "text": "NFL 2025 Season Preview: Gen X Coaches on the Sidelines",
-          "url": "https://www.espn.com/nfl/story/_/id/45920999/gen-x-coaches-define-2025-nfl"
-        },
-        {
-          "text": "College Football Realignment Reshapes Rivalries",
-          "url": "https://www.si.com/college/2025/08/15/college-football-realignment"
-        },
-        {
-          "text": "Fantasy Football 2025: Picks for Midlife Managers",
-          "url": "https://www.cbssports.com/fantasy/football/news/fantasy-football-2025-genx-best-picks"
-        }
-      ]
-    },
-    {
-      "name": "Health",
-      "items": [
-        {
-          "text": "Can Biohacking Make 100 the New 60?",
-          "url": "https://www.cnn.com/2025/08/15/health/biohacking-longevity-study"
-        },
-        {
-          "text": "Gen Xers Face Rising Heart Attack Trends",
-          "url": "https://www.healthline.com/health-news/gen-x-heart-attack-risk"
-        },
-        {
-          "text": "Sandwich Generation Stress Peaks for Gen X",
-          "url": "https://www.apa.org/news/press/releases/2025/08/sandwich-generation-stress"
-        }
-      ]
-    },
-    {
-      "name": "Spirituality",
-      "items": [
-        {
-          "text": "How Americans Describe Their Spirituality Today",
-          "url": "https://www.pewresearch.org/religion/"
-        },
-        {
-          "text": "Religion News Service \u2014 Faith Headlines",
-          "url": "https://religionnews.com/section/news/"
-        },
-        {
-          "text": "Mindfulness & Meaning in Midlife",
-          "url": "https://www.apa.org/topics/mindfulness"
-        }
-      ]
-    }
-  ]
-}
+"categories": [
+  {
+    "name": "Politics",
+    "items": [
+      {
+        "text": "Most boomers and Gen X fear outliving their money",
+        "url": "https://www.marketwatch.com/story/most-boomers-and-gen-x-ers-are-terrified-about-running-out-of-money-in-retirement-even-if-theyre-already-retired-43d52ed0"
+      },
+      {
+        "text": "Senate advances broad tax framework (impacts retirees)",
+        "url": "https://www.reuters.com/world/us/us-senate-republicans-vote-trumps-sweeping-tax-cut-plan-2025-04-03/"
+      },
+      {
+        "text": "What’s in the Senate budget for tax cuts?",
+        "url": "https://www.reuters.com/world/us/whats-us-senate-budget-advance-trumps-tax-cuts-2025-04-04/"
+      }
+    ]
+  },
+  {
+    "name": "Finance",
+    "items": [
+      {
+        "text": "NIQ: Gen X leads 2025 global spending ($15.2T)",
+        "url": "https://nielseniq.com/global/en/insights/report/2025/the-x-factor/"
+      },
+      {
+        "text": "Kiplinger: How Gen X can finally get ahead",
+        "url": "https://www.kiplinger.com/retirement/retirement-planning/an-experts-guide-to-how-gen-x-can-finally-get-ahead"
+      },
+      {
+        "text": "Why it’s harder for Gen X to save than boomers",
+        "url": "https://www.marketwatch.com/story/why-its-harder-for-generation-x-to-save-for-retirement-than-it-was-for-baby-boomers-1a725803"
+      }
+    ]
+  },
+  {
+    "name": "Tech",
+    "items": [
+      {
+        "text": "McKinsey: Ops leaders pulling ahead with AI",
+        "url": "https://www.mckinsey.com/capabilities/operations/our-insights/mind-the-gap-how-operations-leaders-are-pulling-ahead-using-ai"
+      },
+      {
+        "text": "HBR: How people are really using Gen AI in 2025",
+        "url": "https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025"
+      },
+      {
+        "text": "McKinsey: State of AI 2025",
+        "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
+      }
+    ]
+  },
+  {
+    "name": "Culture",
+    "items": [
+      {
+        "text": "WSJ: Gen X nostalgia—trauma-bonding?",
+        "url": "https://www.wsj.com/lifestyle/is-gen-x-nostalgia-just-trauma-bonding-09081b42"
+      },
+      {
+        "text": "Vogue: What if Gen Xers are actually the cool ones?",
+        "url": "https://www.vogue.com/article/what-if-gen-xers-are-actually-the-cool-ones"
+      },
+      {
+        "text": "Guardian: Rethinking the 90s nostalgia wave",
+        "url": "https://www.theguardian.com/media/commentisfree/2025/jun/26/90s-summer-children-tiktok-kids-nostalgia-fashion-music"
+      }
+    ]
+  },
+  {
+    "name": "Sports",
+    "items": [
+      {
+        "text": "Washington Post: Lazy person’s fantasy draft (2025)",
+        "url": "https://www.washingtonpost.com/sports/2025/08/30/fantasy-football-draft-picks/"
+      },
+      {
+        "text": "NFL.com: Which new head coach will win most in 2025?",
+        "url": "https://www.nfl.com/news/which-new-nfl-head-coach-will-win-most-in-2025-brian-schottenheimer-ben-johnson-top-my-rankings"
+      },
+      {
+        "text": "ESPN: Outlooks for 2025’s new NFL coaches",
+        "url": "https://www.espn.com/nfl/story/_/id/46039656/nfl-new-head-coaches-outlooks-predictions-2025"
+      }
+    ]
+  },
+  {
+    "name": "Health",
+    "items": [
+      {
+        "text": "AHA 2025: Heart disease & stroke stats at-a-glance (PDF)",
+        "url": "https://www.heart.org/en/-/media/PHD-Files-2/Science-News/2/2025-Heart-and-Stroke-Stat-Update/2025-Statistics-At-A-Glance.pdf?sc_lang=en"
+      },
+      {
+        "text": "STAT: Screening at 45 catching colon cancers earlier",
+        "url": "https://www.statnews.com/2025/08/04/colon-cancer-screening-guidelines-age-45-new-studies/"
+      },
+      {
+        "text": "ACS/JAMA: Early CRC diagnoses up in 45–49 year-olds",
+        "url": "https://pressroom.cancer.org/early-diagnosis-surge-for-CRC"
+      }
+    ]
+  },
+  {
+    "name": "Spirituality",
+    "items": [
+      { "text": "Religion News Service — Faith headlines", "url": "https://religionnews.com/feed/" },
+      { "text": "Pew Research — Religion & Public Life", "url": "https://www.pewresearch.org/religion/" },
+      { "text": "NPR — Religion & Spirituality", "url": "https://www.npr.org/rss/rss.php?id=1032" }
+    ]
+  }
+]
