@@ -1,1 +1,113 @@
-{"siteTitle": "Gen Xodus","categories":[]}
+{
+  "siteTitle": "Gen Xodus",
+  "tagline": "News & links for U.S. Gen X",
+  "feature": {
+    "text": "Gen X money & midlife: what matters this week",
+    "url": "https://www.emarketer.com/content/gen-x-leads-global-consumer-spending-2025",
+    "kicker": "Spending power, retirement, health"
+  },
+  "categories": [
+    {
+      "name": "Politics",
+      "items": [
+        {
+          "text": "Gen X retirement challenges\u2014and how to course-correct",
+          "url": "https://www.kiplinger.com/retirement/retirement-planning/gen-x-challenges-lie-ahead-as-retirement-nears"
+        },
+        {
+          "text": "Gen X\u2019s $15.2T spending power is reshaping markets",
+          "url": "https://www.emarketer.com/content/gen-x-leads-global-consumer-spending-2025"
+        },
+        {
+          "text": "Most boomers and Gen X fear outliving their money",
+          "url": "https://www.marketwatch.com/story/most-boomers-and-gen-x-ers-are-terrified-about-running-out-of-money-in-retirement-even-if-theyre-already-retired-43d52ed0"
+        }
+      ]
+    },
+    {
+      "name": "Finance",
+      "items": [
+        {
+          "text": "Which generation has the most wealth right now?",
+          "url": "https://wtop.com/business-finance/2025/08/which-generation-has-the-most-wealth/"
+        },
+        {
+          "text": "Gen X will spend $15.2T in 2025\u2014NielsenIQ report",
+          "url": "https://nielseniq.com/global/en/insights/report/2025/the-x-factor/"
+        },
+        {
+          "text": "Wealth Pulse 2025: Affluent Gen X feel underserved",
+          "url": "https://www.investmentnews.com/retirement-planning/gen-x-investors-feeling-underserved-as-affluent-investors-split-on-advisor-satisfaction/261899"
+        }
+      ]
+    },
+    {
+      "name": "Tech",
+      "items": [
+        {
+          "text": "Bosses want 'AI\u2011literate' hires\u2014what it really means",
+          "url": "https://www.washingtonpost.com/business/2025/08/30/job-skills-ai-literacy/"
+        },
+        {
+          "text": "Survey: 'AI shame' and the readiness gap at work",
+          "url": "https://allwork.space/2025/08/survey-finds-growing-ai-shame-phenomenon-readiness-gap-emerging-at-work/"
+        },
+        {
+          "text": "Workers eye upskilling amid AI anxiety",
+          "url": "https://www.edx.org/resources/workers-consider-upskilling-due-to-ai-anxiety"
+        }
+      ]
+    },
+    {
+      "name": "Culture",
+      "items": [
+        {
+          "text": "Is Gen X nostalgia just trauma\u2011bonding?",
+          "url": "https://www.wsj.com/lifestyle/is-gen-x-nostalgia-just-trauma-bonding-09081b42"
+        },
+        {
+          "text": "Gen X might actually be the cool ones",
+          "url": "https://www.vogue.com/article/what-if-gen-xers-are-actually-the-cool-ones"
+        },
+        {
+          "text": "Rethinking the '90s summer' nostalgia wave",
+          "url": "https://www.theguardian.com/media/commentisfree/2025/jun/26/90s-summer-children-tiktok-kids-nostalgia-fashion-music"
+        }
+      ]
+    },
+    {
+      "name": "Sports",
+      "items": [
+        {
+          "text": "Which new NFL head coach will win most in 2025?",
+          "url": "https://www.nfl.com/news/which-new-nfl-head-coach-will-win-most-in-2025-brian-schottenheimer-ben-johnson-top-my-rankings"
+        },
+        {
+          "text": "ESPN: Best/worst situations for new NFL coaches",
+          "url": "https://www.espn.com/nfl/story/_/id/46039656/nfl-new-head-coaches-outlooks-predictions-2025"
+        },
+        {
+          "text": "25 trends shaping the 2025 NFL season",
+          "url": "https://sports.yahoo.com/nfl/article/25-in-2025-trends-shaping-the-nfl-130048391.html"
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "items": [
+        {
+          "text": "AHA 2025: US heart disease & stroke stats at\u2011a\u2011glance",
+          "url": "https://www.heart.org/en/-/media/PHD-Files-2/Science-News/2/2025-Heart-and-Stroke-Stat-Update/2025-Statistics-At-A-Glance.pdf?sc_lang=en"
+        },
+        {
+          "text": "Guideline change to 45 is catching colon cancers earlier",
+          "url": "https://www.statnews.com/2025/08/04/colon-cancer-screening-guidelines-age-45-new-studies/"
+        },
+        {
+          "text": "ACS/JAMA: Early CRC diagnoses up in 45\u201149 year\u2011olds",
+          "url": "https://pressroom.cancer.org/early-diagnosis-surge-for-CRC"
+        }
+      ]
+    }
+  ]
+}
