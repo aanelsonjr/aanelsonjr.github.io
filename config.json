@@ -1,24 +1,26 @@
 {
-  "siteTitle": "GEN XODUS",
-  "tagline": "News & links for Gen X",
+  "siteTitle": "Gen Xodus",
+  "tagline": "News & links for U.S. Gen X",
   "feature": {
     "text": "Gen X money & midlife: what matters this week",
-    "url": "https://www.washingtonpost.com/business/2025/08/11/ai-degree-education/",
-    "kicker": "Career, college bills, retirement, health"
+    "url": "https://www.marketwatch.com/story/working-from-home-might-be-the-key-to-a-better-retirement",
+    "kicker": "Retirement, identity, wealth"
   },
   "categories": [
     {
       "name": "Politics",
       "items": [
         {
-          "text": "Social Security full retirement age shifts again in 2025\u2014what to know",
-          "url": "https://www.cbsnews.com/news/social-security-full-retirement-age-2025-what-to-know/",
-          "badge": "RETIREMENT"
+          "text": "Gen X is trying to come to grips with getting 'old.' It's not going so well.",
+          "url": "https://www.marketwatch.com/story/gen-x-is-trying-to-come-to-grips-with-getting-old-its-not-going-so-well"
         },
         {
-          "text": "What Gen X gets wrong about claiming Social Security",
-          "url": "https://money.usnews.com/money/retirement/articles/what-gen-x-gets-wrong-about-claiming-social-security",
-          "badge": "ADVICE"
+          "text": "Gen X\u2019s Quiet Economic Power: Unlocking $15.2 Trillion in Markets",
+          "url": "https://www.businesswire.com/news/home/20250814005000/en/Gen-Xs-Quiet-Economic-Power"
+        },
+        {
+          "text": "Gen X is being skipped over for CEO roles",
+          "url": "https://www.wsj.com/articles/gen-x-being-skipped-over-for-ceo-roles"
         }
       ]
     },
@@ -26,19 +28,16 @@
       "name": "Finance",
       "items": [
         {
-          "text": "Parents are tapping 401(k)s & home equity for college\u2014why experts say don\u2019t",
-          "url": "https://www.marketwatch.com/story/parents-are-draining-money-from-retirement-accounts-and-home-equity-to-pay-for-college-they-should-do-this-for-their-kids-instead-fc2961a3",
-          "badge": "COLLEGE"
+          "text": "Gen X Drives $15.2 Trillion Global Market Spending",
+          "url": "https://www.businesswire.com/news/home/20250814005000/en/Gen-Xs-Quiet-Economic-Power"
         },
         {
-          "text": "Confronted with college costs, parents jeopardize retirement savings",
-          "url": "https://www.benefitnews.com/news/citizens-parents-compromise-retirement-over-college-costs",
-          "badge": "PLANNING"
+          "text": "Generation X Retirement Preparedness Crisis",
+          "url": "https://www.kiplinger.com/retirement/retirement-planning/generation-x-retirement-preparedness-crisis"
         },
         {
-          "text": "Mortgage rate outlook & housing\u2014what could change ahead",
-          "url": "https://m.economictimes.com/news/international/us/2026-mortgage-rates-set-to-change-will-warren-buffetts-berkshire-hathaway-prediction-give-the-housing-market-the-relief-it-needs/articleshow/123238901.cms",
-          "badge": "HOUSING"
+          "text": "Gen X to Outspend Other Generations in 2025",
+          "url": "https://www.forbes.com/sites/forbesfinancecouncil/2025/08/10/gen-x-to-outspend-other-generations-in-2025"
         }
       ]
     },
@@ -46,54 +45,16 @@
       "name": "Tech",
       "items": [
         {
-          "text": "Workers are getting AI degrees to stay relevant",
-          "url": "https://www.washingtonpost.com/business/2025/08/11/ai-degree-education/",
-          "badge": "CAREER"
+          "text": "AI Stocks Face a 'Show Me' Moment",
+          "url": "https://www.cnbc.com/2025/08/12/these-ai-stocks-face-a-show-me-moment.html"
         },
         {
-          "text": "AI at work 2025: training and upskilling matter",
-          "url": "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-at-work",
-          "badge": "REPORT"
-        }
-      ]
-    },
-    {
-      "name": "Health",
-      "items": [
-        {
-          "text": "Midlife: sustained weight loss linked to lower disease risk",
-          "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2834426",
-          "badge": "NEW STUDY"
+          "text": "Gen X Leaders Driving AI Integration",
+          "url": "https://www.mckinsey.com/2025/07/29/gen-x-leaders-driving-ai-integration"
         },
         {
-          "text": "Resistance training in midlife\u2014benefits across bone, heart, mood",
-          "url": "https://www.sciencedirect.com/science/article/pii/S2666337625000162",
-          "badge": "RESEARCH"
-        },
-        {
-          "text": "Strength training guidance for middle-aged women",
-          "url": "https://bmcwomenshealth.biomedcentral.com/articles/10.1186/s12905-023-02671-y",
-          "badge": "GUIDE"
-        }
-      ]
-    },
-    {
-      "name": "Sports",
-      "items": [
-        {
-          "text": "NFL 2025: game-by-game expert picks",
-          "url": "https://www.cbssports.com/nfl/news/2025-nfl-game-by-game-predictions-expert-picks-all-285-games-win-total-bets-super-bowl-futures/",
-          "badge": "NFL"
-        },
-        {
-          "text": "NFL future power rankings: all 32 teams",
-          "url": "https://www.espn.com/nfl/story/_/id/45920966/2025-nfl-future-power-rankings-projections-32-teams-roster-coaching-quarterback",
-          "badge": "RANKINGS"
-        },
-        {
-          "text": "College football realignment: the Pac-12\u2019s path forward",
-          "url": "https://www.espn.com/college-football/story/_/id/45898458/pac-12-future-mountain-west-conference-realignment-2025",
-          "badge": "NCAA"
+          "text": "Gen Xers Manage Tech Across Generations",
+          "url": "https://hbr.org/2025/08/gen-xers-manage-tech-across-generations"
         }
       ]
     },
@@ -101,14 +62,67 @@
       "name": "Culture",
       "items": [
         {
-          "text": "I Love the 90s Tour returns\u2014Vanilla Ice headlines 2025",
-          "url": "https://www.broadwayworld.com/los-angeles/article/Vanilla-Ice-to-Headline-the-I-LOVE-THE-90S-Tour-in-2025-20250129",
-          "badge": "90s"
+          "text": "Gen X is trying to come to grips with getting 'old.'",
+          "url": "https://www.marketwatch.com/story/gen-x-is-trying-to-come-to-grips-with-getting-old-its-not-going-so-well"
         },
         {
-          "text": "2025 R&B tours: dates & artists (updating)",
-          "url": "https://ratedrnb.com/2024/11/rnb-tours-concerts-2025/",
-          "badge": "MUSIC"
+          "text": "Boomers & Gen Xers Share 30 Things They Don\u2019t Miss from the 80s/90s",
+          "url": "https://www.buzzfeed.com/boomer-genx-80s-90s-things-they-dont-miss"
+        },
+        {
+          "text": "An Apology to Gen X",
+          "url": "https://www.theatlantic.com/culture/archive/2025/08/an-apology-to-gen-x/675000"
+        }
+      ]
+    },
+    {
+      "name": "Sports",
+      "items": [
+        {
+          "text": "NFL 2025 Season Preview: Gen X Coaches on the Sidelines",
+          "url": "https://www.espn.com/nfl/story/_/id/45920999/gen-x-coaches-define-2025-nfl"
+        },
+        {
+          "text": "College Football Realignment Reshapes Rivalries",
+          "url": "https://www.si.com/college/2025/08/15/college-football-realignment"
+        },
+        {
+          "text": "Fantasy Football 2025: Picks for Midlife Managers",
+          "url": "https://www.cbssports.com/fantasy/football/news/fantasy-football-2025-genx-best-picks"
+        }
+      ]
+    },
+    {
+      "name": "Health",
+      "items": [
+        {
+          "text": "Can Biohacking Make 100 the New 60?",
+          "url": "https://www.cnn.com/2025/08/15/health/biohacking-longevity-study"
+        },
+        {
+          "text": "Gen Xers Face Rising Heart Attack Trends",
+          "url": "https://www.healthline.com/health-news/gen-x-heart-attack-risk"
+        },
+        {
+          "text": "Sandwich Generation Stress Peaks for Gen X",
+          "url": "https://www.apa.org/news/press/releases/2025/08/sandwich-generation-stress"
+        }
+      ]
+    },
+    {
+      "name": "Spirituality",
+      "items": [
+        {
+          "text": "How Americans Describe Their Spirituality Today",
+          "url": "https://www.pewresearch.org/religion/"
+        },
+        {
+          "text": "Religion News Service \u2014 Faith Headlines",
+          "url": "https://religionnews.com/section/news/"
+        },
+        {
+          "text": "Mindfulness & Meaning in Midlife",
+          "url": "https://www.apa.org/topics/mindfulness"
         }
       ]
     }
