@@ -1,0 +1,23 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Gen Xodus fetch probe</title>
+<h1>Fetch probe</h1>
+<p>This page will try to fetch <code>config.json</code> from the same folder and print what happens.</p>
+<pre id="out" style="background:#111;color:#0f0;padding:12px;white-space:pre-wrap;"></pre>
+<script>
+(async () => {
+  const out = document.getElementById('out');
+  function log(...args){ out.textContent += args.join(' ') + '\n'; console.log(...args); }
+  log('Location:', location.href);
+  try {
+    const res = await fetch('config.json', {cache:'no-store'});
+    log('Fetch status:', res.status, res.statusText);
+    const text = await res.text();
+    log('First 200 chars of body:', text.slice(0,200));
+    try { const json = JSON.parse(text); log('Parsed OK. Keys:', Object.keys(json)); }
+    catch (e) { log('JSON parse error:', e.message); }
+  } catch (e) {
+    log('Fetch threw error:', e.message);
+  }
+})();
+</script>
