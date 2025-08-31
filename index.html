@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gen Xodus — News for Gen X (Diagnostic Inline)</title>
+  <title>Gen Xodus — News for Gen X</title>
+  <meta name="description" content="Gen Xodus: a Gen‑X–focused, Drudge-style link hub." />
   <style>
     body { margin:0; font-family: ui-serif, Georgia, serif; background:#fcfcfa; color:#101418; }
     a { color:#0a58ca; text-underline-offset:2px; }
@@ -11,14 +12,12 @@
     .masthead { text-align:center; margin:16px 0 8px; }
     .site-title { font-family: Courier New, monospace; font-weight:800; letter-spacing:2px; font-size:clamp(32px,7vw,72px); text-transform:uppercase; }
     .sublabel { color:#667085; font-size:14px; margin-top:6px; }
-    .feature { margin:8px auto 16px; text-align:center; border-top:2px solid #e6e6e6; border-bottom:2px solid #e6e6e6; padding:14px 8px; max-width:980px; }
     .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; }
     @media (max-width:980px){ .grid { grid-template-columns:1fr; } }
     .card { background:#fff; border:1px solid #e6e6e6; border-radius:12px; padding:12px; }
     .col-title { font-family: Courier New, monospace; font-size:14px; letter-spacing:1px; color:#667085; text-transform:uppercase; margin:4px 0 10px; }
     ul { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
     .banner { background:#fff0f0; color:#7a1f1f; border:1px solid #f3c2c2; padding:10px 12px; border-radius:8px; margin:12px auto; max-width:980px; font-size:14px; display:none; }
-    footer { text-align:center; color:#667085; font-size:13px; padding:24px 0 40px; }
   </style>
 </head>
 <body>
@@ -28,67 +27,40 @@
       <div class="sublabel"><span id="today"></span> · <span id="tagline">News & links for U.S. Gen X</span></div>
     </header>
 
-    <div id="errorBanner" class="banner"></div>
-
-    <section class="feature" id="feature"></section>
+    <div id="banner" class="banner"></div>
     <main class="grid" id="grid"></main>
-
-    <footer>© <span id="year"></span> Gen Xodus</footer>
   </div>
 
   <script>
-    const seed = {
-      "siteTitle": "Gen Xodus",
-      "tagline": "News & links for U.S. Gen X",
-      "feature": {"text":"FEATURED: Fresh headlines for Gen X","url":"#","kicker":"Diagnostic inline build"},
-      "categories":[
-        {"name":"Politics","items":[{"text":"Example: Social Security update","url":"#"}]},
-        {"name":"Finance","items":[{"text":"Example: Mortgage/401(k) planning","url":"#"}]},
-        {"name":"Tech","items":[{"text":"Example: AI at work","url":"#"}]},
-        {"name":"Health","items":[{"text":"Example: Midlife strength plan","url":"#"}]},
-        {"name":"Sports","items":[{"text":"Example: NFL preview","url":"#"}]},
-        {"name":"Culture","items":[{"text":"Example: 90s nostalgia","url":"#"}]},
-        {"name":"Spirituality","items":[{"text":"Example: Mindfulness & meaning","url":"#"}]}
-      ]
-    };
+    const banner = document.getElementById('banner');
+    const show = (msg) => { banner.textContent = msg; banner.style.display='block'; console.warn(msg); };
 
-    const showError = (msg) => {
-      const b = document.getElementById('errorBanner');
-      b.textContent = msg;
-      b.style.display = 'block';
-    };
-
-    const linkItem = (item) => `<li><a href="${item.url}" target="_blank" rel="noopener">${item.text}</a></li>`;
-
-    const render = (cfg) => {
+    const li = (t,u) => `<li><a href="${u}" target="_blank" rel="noopener">${t}</a></li>`;
+    function render(cfg){
       document.getElementById('siteTitle').textContent = cfg.siteTitle || 'Gen Xodus';
       document.getElementById('tagline').textContent = cfg.tagline || 'News & links for U.S. Gen X';
-      document.getElementById('feature').innerHTML = cfg.feature && cfg.feature.text
-        ? `<h1><a href="${cfg.feature.url}" target="_blank" rel="noopener">${cfg.feature.text}</a></h1><div style="color:#667085;font-size:13px;margin-top:6px;">${cfg.feature.kicker||''}</div>`
-        : '';
-      const grid = document.getElementById('grid');
-      grid.innerHTML = (cfg.categories||[]).map(cat => (
-        `<section class="card"><div class="col-title">${cat.name}</div><ul>${(cat.items||[]).map(linkItem).join('')}</ul></section>`
-      )).join('');
-    };
+      const cats = Array.isArray(cfg.categories) ? cfg.categories : [];
+      if (!cats.length) show('Config loaded but "categories" is empty or missing.');
+      document.getElementById('grid').innerHTML = cats.map(cat => `
+        <section class="card">
+          <div class="col-title">${cat.name||'Untitled'}</div>
+          <ul>${(Array.isArray(cat.items)?cat.items:[]).map(x=>li(x.text||'Untitled', x.url||'#')).join('')}</ul>
+        </section>
+      `).join('');
+    }
 
     (async () => {
-      document.getElementById('today').textContent = new Date().toLocaleDateString(undefined, {weekday:'long', month:'long', day:'numeric', year:'numeric'});
-      document.getElementById('year').textContent = new Date().getFullYear();
-
       try {
         const res = await fetch('config.json', {cache:'no-store'});
-        if (!res.ok) throw new Error(`config.json HTTP ${res.status}`);
-        const cfg = await res.json();
-        if (!cfg.categories || !Array.isArray(cfg.categories) || cfg.categories.length === 0) {
-          showError('Loaded config.json but no categories found. Check JSON structure.');
-          render(seed);
-        } else {
-          render(cfg);
-        }
+        if (!res.ok) throw new Error('HTTP '+res.status);
+        const txt = await res.text();
+        let cfg;
+        try { cfg = JSON.parse(txt); }
+        catch(e){ show('config.json parse error: '+e.message); return; }
+        render(cfg);
+        console.log('Loaded config.json OK. Category count:', (cfg.categories||[]).length);
       } catch (e) {
-        showError('Could not load config.json (' + e.message + '). Showing inline demo.');
-        render(seed);
+        show('Failed to load config.json: '+e.message);
       }
     })();
   </script>
