@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gen Xodus — News for Gen X</title>
+  <meta name="description" content="Gen Xodus: a Gen‑X–focused, Drudge-style link hub." />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:title" content="Gen Xodus" />
+  <meta property="og:site_name" content="Gen Xodus" />
+  <meta property="og:description" content="News & links for U.S. Gen X." />
+  <meta name="twitter:title" content="Gen Xodus" />
+  <style>
+    :root { --bg:#fcfcfa; --fg:#101418; --muted:#667085; --accent:#0f766e; --link:#0a58ca; --link-visited:#6f42c1; --border:#e6e6e6; --card:#ffffff; }
+    :root.dark { --bg:#0c1116; --fg:#e8ecef; --muted:#9aa4b2; --accent:#14b8a6; --link:#93c5fd; --link-visited:#c4b5fd; --border:#1b2836; --card:#0f1621; }
+    html, body { height:100%; }
+    body { margin:0; font-family: ui-serif, Georgia, "Times New Roman", Times, serif; background:var(--bg); color:var(--fg); line-height:1.35; }
+    a { color:var(--link); text-decoration-thickness:.08em; text-underline-offset:2px; }
+    a:visited { color:var(--link-visited); }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width:1200px; margin:0 auto; padding:16px; }
+    .masthead { text-align:center; margin:16px 0 8px; }
+    .site-title { font-family:"Courier New", Courier, monospace; font-weight:800; letter-spacing:2px; font-size:clamp(32px, 7vw, 72px); text-transform:uppercase; color:var(--fg); }
+    .sublabel { color:var(--muted); font-size:14px; margin-top:6px; }
+    .toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; justify-content:center; margin:8px 0 16px; }
+    .btn { cursor:pointer; border:1px solid var(--border); background:var(--card); color:var(--fg); padding:8px 10px; border-radius:8px; font-size:14px; }
+    .btn:hover { filter:brightness(.97); }
+    .input { border:1px solid var(--border); background:var(--bg); color:var(--fg); padding:8px 10px; border-radius:8px; font-size:14px; min-width:240px; }
+    .feature { margin:8px auto 16px; text-align:center; border-top:2px solid var(--border); border-bottom:2px solid var(--border); padding:14px 8px; max-width:980px; }
+    .feature a { color:var(--accent); text-decoration:none; }
+    .feature a:hover { text-decoration:underline; }
+    .feature h1 { margin:0; font-size:clamp(20px, 4.8vw, 42px); font-weight:900; text-transform:uppercase; }
+    .feature .kicker { color:var(--muted); font-size:13px; margin-top:6px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px; align-items:start; }
+    @media (max-width:980px){ .grid { grid-template-columns:1fr; } }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:12px; }
+    .col-title { font-family:"Courier New", Courier, monospace; font-size:14px; letter-spacing:1px; color:var(--muted); text-transform:uppercase; margin:4px 0 10px; }
+    ul.links { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+    .links li a { font-size:clamp(15px, 1.6vw, 18px); font-weight:800; text-decoration:none; }
+    .links li small { display:inline-block; margin-left:6px; color:var(--muted); font-weight:400; }
+    .note { color:var(--muted); font-size:13px; margin-top:4px; }
+    footer { text-align:center; color:var(--muted); font-size:13px; padding:24px 0 40px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead" role="banner">
+      <div class="site-title" id="siteTitle">Gen Xodus</div>
+      <div class="sublabel"><span id="today"></span> · <span id="tagline">News & links for U.S. Gen X</span></div>
+    </header>
+
+    <div class="toolbar" role="toolbar" aria-label="Page tools">
+      <button class="btn" id="toggleTheme" title="Toggle dark mode">Toggle Theme</button>
+      <input class="input" id="search" placeholder="Filter links… (⌘/Ctrl+K)" aria-label="Filter links" />
+    </div>
+
+    <section class="feature" id="feature" aria-label="Main feature"></section>
+    <main class="grid" id="grid" aria-label="Categories"></main>
+
+    <footer>
+      <div class="help">Curated for Gen X · Visits: <strong id="visitCount">—</strong></div>
+      <div>© <span id="year"></span> Gen Xodus</div>
+    </footer>
+  </div>
+
+  <script id="config-seed" type="application/json">
+  {
+    "siteTitle": "Gen Xodus",
+    "tagline": "News & links for U.S. Gen X",
+    "feature": { "text": "FEATURED: The stories Gen X is talking about", "url": "#", "kicker": "Curated" },
+    "categories": [
+      {"name":"Politics","items":[{"text":"Election map shifts in the suburbs","url":"#"}]},
+      {"name":"Finance","items":[{"text":"College bills & empty-nest budgets","url":"#"}]},
+      {"name":"Tech","items":[{"text":"AI at work: will it help your job?","url":"#"}]},
+      {"name":"Health","items":[{"text":"Midlife fitness: quick strength plan","url":"#"}]},
+      {"name":"Sports","items":[{"text":"NFL preview: rivalry week","url":"#"}]},
+      {"name":"Culture","items":[{"text":"90s nostalgia: reboots worth watching","url":"#"}]},
+      {"name":"Spirituality","items":[{"text":"Mindfulness & meaning in midlife","url":"#"}]}
+    ]
+  }
+  </script>
+
+  <script>
+    const $ = (s, el=document) => el.querySelector(s);
+    const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+
+    const THEME_KEY = 'genxodus_theme';
+
+    function formatToday(){
+      try { return new Intl.DateTimeFormat(undefined, { weekday:'long', month:'long', day:'numeric', year:'numeric' }).format(new Date()); }
+      catch { return new Date().toDateString(); }
+    }
+
+    async function loadConfig(){
+      try {
+        const res = await fetch('config.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return await res.json();
+      } catch (e) {
+        return JSON.parse(document.getElementById('config-seed').textContent);
+      }
+    }
+
+    function renderFeature(feature){
+      const el = document.getElementById('feature');
+      if (!feature || !feature.text) { el.innerHTML = ''; return; }
+      el.innerHTML = \`
+        <h1><a href="\${feature.url}" target="_blank" rel="noopener noreferrer">\${feature.text}</a></h1>
+        \${feature.kicker ? \`<div class="kicker">\${feature.kicker}</div>\` : ''}
+      \`;
+    }
+
+    function linkItemHTML(item){
+      const badge = item.badge ? \` <small>· \${item.badge}</small>\` : '';
+      const note = item.note ? \`<div class="note">\${item.note}</div>\` : '';
+      return \`
+        <li>
+          <a href="\${item.url}" target="_blank" rel="noopener noreferrer">\${item.text}</a>\${badge}
+          \${note}
+        </li>
+      \`;
+    }
+
+    function renderCategories(categories){
+      const grid = document.getElementById('grid');
+      const colCount = 3;
+      const buckets = Array.from({length: colCount}, () => []);
+      categories.forEach((cat, i) => buckets[i % colCount].push(cat));
+      grid.innerHTML = buckets.map(bucket => \`
+        <section>
+          \${bucket.map(cat => \`
+            <div class="card">
+              <div class="col-title">\${cat.name}</div>
+              <ul class="links">\${(cat.items||[]).map(linkItemHTML).join('')}</ul>
+            </div>
+          \`).join('')}
+        </section>
+      \`).join('');
+    }
+
+    function toggleTheme(){
+      const root = document.documentElement;
+      root.classList.toggle('dark');
+      localStorage.setItem(THEME_KEY, root.classList.contains('dark') ? 'dark' : 'light');
+    }
+    function initTheme(){ const pref = localStorage.getItem(THEME_KEY); if (pref === 'dark') document.documentElement.classList.add('dark'); }
+
+    function initFilter(){
+      const input = document.getElementById('search');
+      function run(){ const q = input.value.toLowerCase(); $$('.links li').forEach(li => { li.style.display = li.textContent.toLowerCase().includes(q) ? '' : 'none'; }); }
+      input.addEventListener('input', run);
+      window.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); input.focus(); } });
+    }
+
+    async function updateVisitorCounter() {
+      const EL = document.getElementById('visitCount');
+      if (!EL) return;
+      const NS = 'genxodus';
+      const KEY = 'home';
+      const SEEN_KEY = 'genxodus_seen_at';
+      const last = Number(localStorage.getItem(SEEN_KEY) || 0);
+      const now = Date.now();
+      const oneDay = 24 * 60 * 60 * 1000;
+      const shouldIncrement = !last || (now - last > oneDay);
+      try {
+        let data;
+        if (shouldIncrement) {
+          const res = await fetch(`https://api.countapi.xyz/hit/${NS}/${KEY}`);
+          data = await res.json();
+          localStorage.setItem(SEEN_KEY, String(now));
+        } else {
+          const res = await fetch(`https://api.countapi.xyz/get/${NS}/${KEY}`);
+          data = await res.json();
+        }
+        EL.textContent = (data && data.value) ? Number(data.value).toLocaleString() : '—';
+      } catch { EL.textContent = '—'; }
+    }
+
+    async function renderAll(){
+      const cfg = await loadConfig();
+      document.getElementById('siteTitle').textContent = cfg.siteTitle || 'Gen Xodus';
+      document.getElementById('tagline').textContent = cfg.tagline || 'News & links for U.S. Gen X';
+      document.title = (cfg.siteTitle || 'Gen Xodus') + ' — News for Gen X';
+      renderFeature(cfg.feature);
+      if (cfg.categories) renderCategories(cfg.categories);
+    }
+
+    initTheme();
+    document.getElementById('today').textContent = formatToday();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderAll();
+    initFilter();
+    updateVisitorCounter();
+    document.getElementById('toggleTheme').addEventListener('click', toggleTheme);
+  </script>
+</body>
+</html>
